@@ -127,9 +127,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, title, onClose, contentT
     } else {
       return [
         `https://vidsrc.me/embed/movie?tmdb=${contentId}&ads=false&adblock=true&noad=1&noads=true`,
+        `https://moviesapi.club/movie/${contentId}?ads=false&adblock=true&noad=1&noads=true&ad=0`,
         `https://www.2embed.cc/embed/${contentId}?ads=false&adblock=true&noad=1&noads=true&ad=0`,
-        `https://player.smashy.stream/movie/${contentId}?ads=0&adblock=1&noad=true&noads=1&ad=false`,
-        `https://moviesapi.club/movie/${contentId}?ads=false&adblock=true&noad=1&noads=true&ad=0`
+        `https://player.smashy.stream/movie/${contentId}?ads=0&adblock=1&noad=true&noads=1&ad=false`
       ]
     }
   }, [contentId, contentType, currentSeasonNumber, currentEpisodeNumber])

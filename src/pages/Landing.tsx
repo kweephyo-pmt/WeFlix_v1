@@ -221,32 +221,33 @@ const Landing: React.FC = () => {
   const [selectedMovie, setSelectedMovie] = useState<typeof allTrendingContent[0] | null>(null)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
+    <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
-      <div
-        className="relative min-h-screen flex items-center justify-center bg-cover bg-center overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(15,23,42,0.9) 50%, rgba(0,0,0,0.8) 100%), url('https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`
-        }}
+      <div 
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
       >
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-red-600/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        {/* Background with gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900"></div>
+        
+        {/* Subtle animated gradient orbs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
         </div>
+        
         {/* Navigation */}
-        <nav className="absolute top-0 left-0 right-0 z-50 p-4 lg:p-6">
+        <nav className="absolute top-0 left-0 right-0 z-50 p-6 lg:p-8 bg-gradient-to-b from-black/80 to-transparent backdrop-blur-sm">
           <div className="flex items-center justify-between max-w-7xl mx-auto">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center">
               <img 
                 src="/logo.svg" 
                 alt="WeFlix" 
-                className="h-12 lg:h-16 w-auto filter drop-shadow-lg"
+                className="h-12 lg:h-14 w-auto"
               />
             </div>
             <Link
               to="/login"
-              className="bg-gradient-to-r from-red-600 to-red-700 text-white px-4 lg:px-8 py-2 lg:py-3 rounded-full font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 transform hover:scale-105 shadow-lg backdrop-blur-sm text-sm lg:text-base"
+              className="bg-gradient-to-r from-red-600 to-red-700 text-white px-6 lg:px-8 py-2.5 lg:py-3 rounded-full font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 text-sm lg:text-base shadow-lg shadow-red-600/20"
             >
               Sign In
             </Link>
@@ -254,40 +255,42 @@ const Landing: React.FC = () => {
         </nav>
 
         <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
-          <div className="mb-4 lg:mb-6">
-            <span className="inline-block bg-gradient-to-r from-red-500 to-pink-500 text-white px-3 lg:px-4 py-1.5 lg:py-2 rounded-full text-xs lg:text-sm font-medium mb-4 animate-bounce">
+          <div className="mb-6">
+            <span className="inline-block bg-red-600/20 border border-red-500/50 text-red-400 px-4 py-2 rounded-full text-xs lg:text-sm font-medium backdrop-blur-sm">
               ✨ Now with 4K Ultra HD
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 lg:mb-8 leading-tight bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
-            Unlimited Movies
-            <span className="block bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 lg:mb-8 leading-tight">
+            <span className="block text-white drop-shadow-2xl">
+              Unlimited Movies
+            </span>
+            <span className="block text-white drop-shadow-2xl">
               & TV Shows
             </span>
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-6 lg:mb-8 text-gray-300 max-w-4xl mx-auto leading-relaxed px-2">
-            Watch anywhere, anytime. Discover thousands of movies and TV shows from every genre, all in stunning quality
+          <p className="text-lg lg:text-xl mb-10 text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Watch anywhere, anytime. Discover thousands of movies and TV shows from every genre
           </p>
-          <div className="flex items-center justify-center mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <Link
               to="/signup"
-              className="group bg-gradient-to-r from-red-600 to-red-700 text-white px-10 py-4 rounded-full text-lg font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center justify-center space-x-3"
+              className="bg-gradient-to-r from-red-600 to-red-700 text-white px-10 py-4 rounded-full text-base lg:text-lg font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 flex items-center space-x-2 shadow-xl shadow-red-600/30 hover:shadow-red-600/50 hover:scale-105 transform"
             >
-              <Play className="h-6 w-6 group-hover:scale-110 transition-transform" />
+              <Play className="h-5 w-5 fill-current" />
               <span>Start Watching Free</span>
             </Link>
           </div>
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6 lg:space-x-8 text-xs sm:text-sm text-gray-400">
-            <div className="flex items-center space-x-2">
-              <Star className="h-3 w-3 sm:h-4 sm:w-4 text-yellow-500" />
+          <div className="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-8 text-sm text-gray-300">
+            <div className="flex items-center space-x-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full">
+              <Star className="h-4 w-4 text-yellow-400 fill-current" />
               <span>4.8/5 Rating</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <Shield className="h-3 w-3 sm:h-4 sm:w-4 text-green-500" />
+            <div className="flex items-center space-x-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full">
+              <Shield className="h-4 w-4 text-green-400" />
               <span>Ad-Free</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <Download className="h-3 w-3 sm:h-4 sm:w-4 text-blue-500" />
+            <div className="flex items-center space-x-2 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full">
+              <Download className="h-4 w-4 text-blue-400" />
               <span>Offline Downloads</span>
             </div>
           </div>
@@ -295,143 +298,99 @@ const Landing: React.FC = () => {
       </div>
 
       {/* Features Section */}
-      <div className="py-16 lg:py-32 relative">
+      <div className="py-20 lg:py-32 bg-black">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="absolute inset-0 bg-gradient-to-r from-red-900/10 via-transparent to-red-900/10 rounded-3xl"></div>
-          {/* Trending Now Section - Homepage Style */}
-          <div className="px-4 lg:px-8 space-y-6 lg:space-y-8">
-            <div className="space-y-4">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 bg-gradient-to-r from-red-500 to-orange-500 rounded-lg flex items-center justify-center shadow-lg">
-                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <h2 className="text-xl lg:text-2xl font-bold text-white tracking-tight">
-                  Trending Now
-                </h2>
+          {/* Trending Now Section */}
+          <div className="px-4 lg:px-8 space-y-8 mb-20">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-8 h-8 bg-gradient-to-r from-red-600 to-red-700 rounded-lg flex items-center justify-center">
+                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clipRule="evenodd" />
+                </svg>
               </div>
-              
-              <div className="flex space-x-3 overflow-x-auto scrollbar-hide pb-4">
-                {allTrendingContent.map((item, index) => (
-                  <div
-                    key={item.id}
-                    onClick={() => setSelectedMovie(item)}
-                    className="flex-none w-52 group cursor-pointer transform transition-all duration-500 hover:scale-110 hover:z-10"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-900 to-black border border-white/10 group-hover:border-red-500/50 transition-all duration-500">
-                      {/* Movie Poster */}
-                      <div className="relative overflow-hidden">
-                        <img
-                          src={item.poster}
-                          alt={item.title}
-                          className="w-full h-80 object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
-                          loading="lazy"
-                        />
-                        {/* Gradient Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
-                        
-                        {/* Rating Badge */}
-                        <div className="absolute top-3 right-3 bg-black/80 backdrop-blur-sm text-yellow-400 px-2 py-1 rounded-lg text-xs font-bold flex items-center">
-                          <span className="mr-1">★</span>
-                          <span>{item.rating}</span>
-                        </div>
-                        
-                        {/* Media Type Badge */}
-                        <div className="absolute top-3 left-3 bg-red-600/90 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs font-medium uppercase tracking-wide">
-                          {item.duration?.includes('Season') ? 'Series' : 'Movie'}
-                        </div>
-                      </div>
-
-                      {/* Enhanced Hover Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-between">
-                        {/* Action Buttons */}
-                        <div className="flex justify-center items-center h-full space-x-3">
-                          <button 
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              setSelectedMovie(item)
-                            }}
-                            className="bg-red-600/90 backdrop-blur-sm text-white p-4 rounded-full hover:bg-red-700 transition-all duration-300 transform hover:scale-110 shadow-lg"
-                          >
-                            <Play className="h-6 w-6 fill-current" />
-                          </button>
-                        </div>
-                        
-                        {/* Movie Info */}
-                        <div className="p-4">
-                          <h3 className="text-white font-bold text-base mb-2 line-clamp-2 leading-tight">{item.title}</h3>
-                          <div className="flex items-center justify-between text-xs text-gray-300">
-                            <div className="flex items-center space-x-2">
-                              <span className="bg-white/20 px-2 py-1 rounded">{item.year}</span>
-                              <span className="bg-red-600/20 px-2 py-1 rounded">{item.genre}</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Bottom Info Bar (Always Visible) */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-4 group-hover:opacity-0 transition-opacity duration-300">
-                        <h3 className="text-white font-semibold text-sm mb-1 line-clamp-1">{item.title}</h3>
-                        <div className="flex items-center space-x-2 text-xs text-gray-400">
-                          <span>{item.year}</span>
-                          <span>•</span>
-                          <span>{item.genre}</span>
-                        </div>
+              <h2 className="text-2xl font-bold text-white">
+                Trending Now
+              </h2>
+            </div>
+            
+            <div className="flex space-x-4 overflow-x-auto scrollbar-hide pb-4">
+              {allTrendingContent.slice(0, 10).map((item) => (
+                <div
+                  key={item.id}
+                  onClick={() => setSelectedMovie(item)}
+                  className="flex-none w-48 group cursor-pointer transform transition-all duration-300 hover:scale-105"
+                >
+                  <div className="relative rounded-lg overflow-hidden bg-gray-900 border border-gray-800 group-hover:border-red-600/50 transition-all duration-300">
+                    <img
+                      src={item.poster}
+                      alt={item.title}
+                      className="w-full h-72 object-cover"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+                    
+                    <div className="absolute top-3 right-3 bg-black/80 backdrop-blur-sm text-yellow-400 px-2 py-1 rounded-lg text-xs font-bold flex items-center">
+                      <span className="mr-1">★</span>
+                      <span>{item.rating}</span>
+                    </div>
+                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                      <h3 className="text-white font-bold text-sm mb-2 line-clamp-2">{item.title}</h3>
+                      <div className="flex items-center space-x-2 text-xs text-gray-300">
+                        <span>{item.year}</span>
+                        <span>•</span>
+                        <span>{item.genre}</span>
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          <br/>
-          <br/>
-          <div className="text-center mb-16 lg:mb-24">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 lg:mb-8 bg-gradient-to-r from-white via-red-100 to-white bg-clip-text text-transparent">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
               Why Choose WeFlix?
             </h2>
-            <p className="text-lg lg:text-2xl text-gray-300 max-w-4xl mx-auto px-4 leading-relaxed">
-              Experience entertainment like never before with our cutting-edge streaming platform
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+              Experience entertainment like never before
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
-            <div className="group text-center p-8 lg:p-10 rounded-3xl bg-gradient-to-b from-gray-800/60 to-gray-900/60 backdrop-blur-md border border-gray-700/60 hover:border-red-500/60 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-red-500/20">
-              <div className="bg-gradient-to-r from-red-500 to-pink-500 w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform shadow-2xl">
-                <Tv className="h-10 w-10 text-white" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center p-8 rounded-2xl bg-gray-900/50 border border-gray-800 hover:border-red-600/50 transition-all duration-300">
+              <div className="bg-gradient-to-r from-red-600 to-red-700 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6">
+                <Tv className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-6 text-white">Any Device</h3>
-              <p className="text-gray-300 leading-relaxed text-lg">
-                Stream seamlessly across all your devices with automatic sync
+              <h3 className="text-xl font-bold mb-4 text-white">Any Device</h3>
+              <p className="text-gray-400 leading-relaxed">
+                Stream seamlessly across all your devices
               </p>
             </div>
-            <div className="group text-center p-8 lg:p-10 rounded-3xl bg-gradient-to-b from-gray-800/60 to-gray-900/60 backdrop-blur-md border border-gray-700/60 hover:border-blue-500/60 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
-              <div className="bg-gradient-to-r from-blue-500 to-cyan-500 w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform shadow-2xl">
-                <Shield className="h-10 w-10 text-white" />
+            <div className="text-center p-8 rounded-2xl bg-gray-900/50 border border-gray-800 hover:border-blue-600/50 transition-all duration-300">
+              <div className="bg-gradient-to-r from-blue-600 to-blue-700 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6">
+                <Shield className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-6 text-white">Ad-Free</h3>
-              <p className="text-gray-300 leading-relaxed text-lg">
-                Enjoy uninterrupted viewing with zero ads and no commitments
+              <h3 className="text-xl font-bold mb-4 text-white">Ad-Free</h3>
+              <p className="text-gray-400 leading-relaxed">
+                Enjoy uninterrupted viewing with zero ads
               </p>
             </div>
-            <div className="group text-center p-8 lg:p-10 rounded-3xl bg-gradient-to-b from-gray-800/60 to-gray-900/60 backdrop-blur-md border border-gray-700/60 hover:border-green-500/60 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-green-500/20">
-              <div className="bg-gradient-to-r from-green-500 to-emerald-500 w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform shadow-2xl">
-                <Download className="h-10 w-10 text-white" />
+            <div className="text-center p-8 rounded-2xl bg-gray-900/50 border border-gray-800 hover:border-green-600/50 transition-all duration-300">
+              <div className="bg-gradient-to-r from-green-600 to-green-700 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6">
+                <Download className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-6 text-white">Offline Mode</h3>
-              <p className="text-gray-300 leading-relaxed text-lg">
-                Download content and watch anywhere, even without internet
+              <h3 className="text-xl font-bold mb-4 text-white">Offline Mode</h3>
+              <p className="text-gray-400 leading-relaxed">
+                Download and watch anywhere
               </p>
             </div>
-            <div className="group text-center p-8 lg:p-10 rounded-3xl bg-gradient-to-b from-gray-800/60 to-gray-900/60 backdrop-blur-md border border-gray-700/60 hover:border-yellow-500/60 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/20">
-              <div className="bg-gradient-to-r from-yellow-500 to-orange-500 w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform shadow-2xl">
-                <Zap className="h-10 w-10 text-white" />
+            <div className="text-center p-8 rounded-2xl bg-gray-900/50 border border-gray-800 hover:border-yellow-600/50 transition-all duration-300">
+              <div className="bg-gradient-to-r from-yellow-600 to-yellow-700 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6">
+                <Zap className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold mb-6 text-white">4K Quality</h3>
-              <p className="text-gray-300 leading-relaxed text-lg">
-                Crystal-clear 4K Ultra HD with Dolby Atmos sound
+              <h3 className="text-xl font-bold mb-4 text-white">4K Quality</h3>
+              <p className="text-gray-400 leading-relaxed">
+                Crystal-clear 4K Ultra HD
               </p>
             </div>
           </div>
@@ -440,26 +399,26 @@ const Landing: React.FC = () => {
 
       {/* Movie Details Modal */}
       {selectedMovie && (
-        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-gradient-to-b from-gray-900 to-black rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-gray-700/50">
+        <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-gray-900 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-gray-800">
             <div className="flex flex-col md:flex-row">
               <div className="md:w-1/3 flex-shrink-0">
                 <img
                   src={selectedMovie.poster}
                   alt={selectedMovie.title}
-                  className="w-full h-64 md:h-96 object-cover rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none"
+                  className="w-full h-64 md:h-96 object-cover rounded-t-xl md:rounded-l-xl md:rounded-tr-none"
                 />
               </div>
               <div className="flex-1 p-6 relative">
                 <button
                   onClick={() => setSelectedMovie(null)}
-                  className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm rounded-full p-2 text-white hover:bg-black/80 transition-colors"
+                  className="absolute top-4 right-4 bg-gray-800 rounded-full p-2 text-white hover:bg-gray-700 transition-colors"
                 >
                   <X className="h-5 w-5" />
                 </button>
                 <div className="pt-2">
                   <h2 className="text-white text-2xl font-bold mb-4">{selectedMovie.title}</h2>
-                  <div className="flex items-center space-x-4 text-sm text-gray-300 mb-4">
+                  <div className="flex items-center space-x-4 text-sm text-gray-400 mb-4">
                     <div className="flex items-center space-x-1">
                       <Star className="h-4 w-4 text-yellow-400 fill-current" />
                       <span>{selectedMovie.rating}</span>
@@ -474,30 +433,30 @@ const Landing: React.FC = () => {
                     </div>
                   </div>
                   <div className="mb-4">
-                    <span className="inline-block bg-gradient-to-r from-red-500/20 to-pink-500/20 border border-red-500/30 text-red-300 px-3 py-1 rounded-full text-sm">
+                    <span className="inline-block bg-red-600/20 border border-red-500/50 text-red-400 px-3 py-1 rounded-full text-sm">
                       {selectedMovie.genre}
                     </span>
                   </div>
-                  <p className="text-gray-300 leading-relaxed mb-6">
+                  <p className="text-gray-400 leading-relaxed mb-6">
                     {selectedMovie.description}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Link
                       to="/login"
-                      className="group flex-1 bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-xl font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2"
+                      className="flex-1 bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-lg font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 flex items-center justify-center space-x-2"
                     >
-                      <Play className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                      <Play className="h-5 w-5" />
                       <span>Sign In to Watch</span>
                     </Link>
                     <Link
                       to="/signup"
-                      className="flex-1 bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300 border border-white/20 flex items-center justify-center space-x-2"
+                      className="flex-1 bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-700 transition-all duration-300 flex items-center justify-center space-x-2"
                     >
                       <Users className="h-5 w-5" />
                       <span>Join Free</span>
                     </Link>
                   </div>
-                  <p className="text-center text-gray-400 text-sm mt-4">
+                  <p className="text-center text-gray-500 text-sm mt-4">
                     Sign up for free to start watching instantly
                   </p>
                 </div>
@@ -508,32 +467,26 @@ const Landing: React.FC = () => {
       )}
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-gray-900 via-black to-gray-900 border-t border-gray-700/30 py-12">
+      <footer className="bg-black border-t border-gray-800 py-12">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+          <div className="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
             <div className="flex items-center space-x-3">
               <img 
                 src="/logo2.png" 
                 alt="WeFlix" 
-                className="h-8 w-8 opacity-80"
+                className="h-10 w-10"
               />
-              <span className="text-white font-semibold text-lg">WeFlix</span>
+              <span className="text-white font-bold text-xl">WeFlix</span>
             </div>
             
             <div className="text-center md:text-right">
-              <p className="text-gray-300 text-sm font-medium">
+              <p className="text-gray-400 text-sm font-medium mb-1">
                 Developed by <span className="text-white font-semibold">Phyo Min Thein</span>
               </p>
-              <p className="text-gray-500 text-xs mt-1">
+              <p className="text-gray-600 text-xs">
                 © 2025 WeFlix. All rights reserved.
               </p>
             </div>
-          </div>
-          
-          <div className="mt-8 pt-6 border-t border-gray-800/50 text-center">
-            <p className="text-gray-400 text-xs">
-              Experience premium streaming • Unlimited entertainment • Zero commitments
-            </p>
           </div>
         </div>
       </footer>

@@ -42,7 +42,9 @@ const Trending: React.FC = () => {
     title: movie.title,
     image: movie.posterPath || 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400&h=225&fit=crop',
     year: movie.releaseDate ? new Date(movie.releaseDate).getFullYear().toString() : '2024',
-    genre: 'Movie'
+    genre: 'Movie',
+    mediaType: 'movie' as const,
+    tmdbId: movie.id
   }));
 
   const formatTVShowsForRow = (tvShows: import('../services/tmdb-direct').TVShow[]) => tvShows.map(show => ({
@@ -50,7 +52,9 @@ const Trending: React.FC = () => {
     title: show.title,
     image: show.posterPath || 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=400&h=225&fit=crop',
     year: show.releaseDate ? new Date(show.releaseDate).getFullYear().toString() : '2024',
-    genre: 'TV Show'
+    genre: 'TV Show',
+    mediaType: 'tv' as const,
+    tmdbId: show.id
   }));
 
   const displayTrendingMovies = trendingMovies.length > 0 ? formatMoviesForRow(trendingMovies) : [];
