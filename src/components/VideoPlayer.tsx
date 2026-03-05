@@ -247,14 +247,14 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, title, onClose, contentT
           src={currentSrc}
           className="w-full h-full border-0"
           allowFullScreen
-          allow="autoplay; encrypted-media; picture-in-picture; fullscreen; web-share; camera; microphone; geolocation"
+          allow="autoplay; encrypted-media; picture-in-picture; fullscreen; web-share"
           onError={handleSourceError}
           title={title}
           style={{ 
             minHeight: '150px',
             filter: 'contrast(1.1) brightness(1.05)' // Enhance video quality
           }}
-          referrerPolicy="no-referrer"
+          referrerPolicy="strict-origin-when-cross-origin"
           {...({
             webkitAllowFullScreen: true,
             mozAllowFullScreen: true
