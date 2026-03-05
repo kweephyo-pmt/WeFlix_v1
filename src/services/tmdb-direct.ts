@@ -1,5 +1,5 @@
 // Direct TMDB API service for production deployment
-const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY || '402567ca0e69cc587f0506845b7f5181';
 const TMDB_BASE_URL = 'https://api.themoviedb.org/3';
 
 // TMDB API response interfaces
